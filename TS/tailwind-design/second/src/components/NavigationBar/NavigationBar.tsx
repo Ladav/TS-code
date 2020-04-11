@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
+import Avatar from '../Avatar/Avatar';
 import logo from "./logo.svg";
 
 const NavigationBar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(true);
 
   const navToggle = () => {
     setMenuOpen((prevState) => {
@@ -12,10 +13,10 @@ const NavigationBar: React.FC = () => {
   };
 
   return (
-    <header className="items-center bg-gray-900 sm:flex sm:justify-between sm:px-6 sm:py-3">
-      <div className="flex items-center justify-between px-6 py-3 sm:p-0">
-        <div className="h-10">
-          <img className="h-10" src={logo} alt="logo" />
+    <header className="items-center bg-gray-900 sm:flex sm:justify-between sm:px-6 sm:py-4">
+      <div className="flex items-center justify-between px-6 py-4 sm:p-0">
+        <div className="h-8">
+          <img className="h-8" src={logo} alt="logo" />
         </div>
         <div className="sm:hidden" onClick={navToggle}>
             {
@@ -24,16 +25,17 @@ const NavigationBar: React.FC = () => {
             }
         </div>
       </div>
-      <div className={`${menuOpen ? 'block' : 'hidden'} px-4 pb-4 font-semibold text-gray-100 sm:flex sm:p-0`}>
-        <a className="block px-2 py-1 rounded hover:bg-gray-800" href="#">
-          galary
-        </a>
-        <a className="block px-2 py-1 mt-1 rounded hover:bg-gray-800 sm:mt-0 sm:ml-2" href="#">
-          nothing here
-        </a>
-        <a className="block px-2 py-1 mt-1 rounded hover:bg-gray-800 sm:mt-0 sm:ml-2" href="#">
-          you didn't saw anything
-        </a>
+      <div className="">
+        <div className={`${menuOpen ? 'block' : 'hidden'} px-4 pb-4 font-semibold text-gray-100 sm:flex`}>
+          <a className="block px-2 py-1 rounded hover:bg-gray-800" href="/">
+            galary </a>
+          <a className="block px-2 py-1 mt-1 rounded hover:bg-gray-800 sm:mt-0 md:ml-0" href="/">
+            nothing here </a>
+          <a className="block px-2 py-1 mt-1 rounded hover:bg-gray-800 sm:mt-0 md:ml-0" href="/">
+            you didn't saw anything </a>
+        </div>
+          <div className={`${menuOpen ? 'block' : 'hidden'} ml-2 md:ml-6`}>
+            <Avatar /> </div>
       </div>
     </header>
   );
